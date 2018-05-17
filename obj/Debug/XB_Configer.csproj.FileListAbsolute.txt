@@ -1,0 +1,25 @@
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\bin\Debug\XB_Configer.exe.config
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\bin\Debug\XB_Configer.exe
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\bin\Debug\XB_Configer.pdb
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.Form1.resources
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.Properties.Resources.resources
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.csproj.GenerateResource.Cache
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.exe.licenses
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.exe
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.pdb
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.csprojResolveAssemblyReference.cache
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.FormLogin.resources
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.FormStart.resources
+E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_Configer.ItemUIChooser.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\XB_Configer.exe.config
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.exe
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.pdb
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.csprojResolveAssemblyReference.cache
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.Form1.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.FormLogin.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.FormStart.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.ItemUIChooser.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.ItemUIGenerator.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.Properties.Resources.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.csproj.GenerateResource.Cache
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.exe.licenses
