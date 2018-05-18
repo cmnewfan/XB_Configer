@@ -23,3 +23,10 @@ C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Con
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.Properties.Resources.resources
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.csproj.GenerateResource.Cache
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.exe.licenses
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\XB_Configer.exe
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\XB_Configer.pdb
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\MetroFramework.Design.dll
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\MetroFramework.dll
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.ItemGroupUIGenerator.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll

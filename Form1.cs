@@ -70,7 +70,7 @@ namespace XB_Configer
                     {
                         var newModeName = generatorForm.modeName;
                         StringBuilder sBuilder = new StringBuilder();
-                        sBuilder.Append(@"update XB_ItemDefine set ItemValueColor='" + newModeName + @"' where ItemID=" + this.dataGridView1[0, e.RowIndex].ToString());
+                        sBuilder.Append(@"update XB_ItemDefine set ItemValueColor='" + newModeName + @"' where ItemID=" + this.dataGridView1[0, e.RowIndex].Value.ToString());
                         sqlCommands.Add(sBuilder.ToString());
                     }
                 }
@@ -269,8 +269,10 @@ namespace XB_Configer
                 this.toolStripButton_WT.Checked = false;
                 this.toolStripButton_New.Checked = false;
                 this.toolStrip1.Enabled = false;
-                this.progressPanel1.BringToFront();
+                showProgress();
                 mWorker.RunWorkerAsync(0);
+                ItemGroupUIGenerator itemGroupUIGenerator = new ItemGroupUIGenerator();
+                itemGroupUIGenerator.ShowDialog();
             }
             else if (e.ClickedItem == this.toolStripButton_WT)
             {
@@ -278,12 +280,12 @@ namespace XB_Configer
                 this.toolStripButton_New.Checked = false;
                 this.toolStripButton_Item.Checked = false;
                 this.toolStripButton_WT.Checked = true;
-                this.progressPanel1.BringToFront();
+                showProgress();
                 mWorker.RunWorkerAsync(1);
             }
             else if (e.ClickedItem == this.toolStripButton_Save)
             {
-                this.progressPanel1.BringToFront();
+                showProgress();
                 BackgroundWorker sqlCommandWorker = new BackgroundWorker();
                 sqlCommandWorker.DoWork += sqlCommandWorker_DoWork;
                 sqlCommandWorker.WorkerReportsProgress = true;
@@ -308,9 +310,17 @@ namespace XB_Configer
                 this.toolStripButton_WT.Checked = false;
                 this.toolStripButton_New.Checked = true;
                 this.toolStrip1.Enabled = false;
-                this.progressPanel1.BringToFront();
+                showProgress();
                 mWorker.RunWorkerAsync(2);
             }
+        }
+
+        private void showProgress()
+        {
+            var x = this.Width / 2 - this.metroProgressSpinner1.Width / 2;
+            var y = this.Height / 2 - this.metroProgressSpinner1.Height / 2;
+            this.metroProgressSpinner1.Location = new Point(x, y);
+            this.metroProgressSpinner1.BringToFront();
         }
 
         private void preapreDoClick()
@@ -323,7 +333,7 @@ namespace XB_Configer
             {
                 if (MessageBox.Show("你已经修改了部分数据,是否保存修改结果?", "确认修改", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    this.progressPanel1.BringToFront();
+                    showProgress();
                     BackgroundWorker sqlCommandWorker = new BackgroundWorker();
                     sqlCommandWorker.DoWork += sqlCommandWorker_DoWork;
                     sqlCommandWorker.WorkerReportsProgress = true;

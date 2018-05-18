@@ -32,15 +32,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.toolStripButton_New = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Item = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_WT = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_Save = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -87,20 +87,56 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton_New
+            // 
+            this.toolStripButton_New.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_New.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_New.Image")));
+            this.toolStripButton_New.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_New.Name = "toolStripButton_New";
+            this.toolStripButton_New.Size = new System.Drawing.Size(84, 22);
+            this.toolStripButton_New.Text = "箱变变量配置";
+            // 
+            // toolStripButton_Item
+            // 
+            this.toolStripButton_Item.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_Item.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Item.Image")));
+            this.toolStripButton_Item.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Item.Name = "toolStripButton_Item";
+            this.toolStripButton_Item.Size = new System.Drawing.Size(84, 22);
+            this.toolStripButton_Item.Text = "箱变变量配置";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton_WT
+            // 
+            this.toolStripButton_WT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_WT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_WT.Image")));
+            this.toolStripButton_WT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_WT.Name = "toolStripButton_WT";
+            this.toolStripButton_WT.Size = new System.Drawing.Size(84, 22);
+            this.toolStripButton_WT.Text = "箱变机组配置";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButton_Save
+            // 
+            this.toolStripButton_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_Save.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Save.Image")));
+            this.toolStripButton_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Save.Name = "toolStripButton_Save";
+            this.toolStripButton_Save.Size = new System.Drawing.Size(36, 22);
+            this.toolStripButton_Save.Text = "保存";
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.metroProgressSpinner1);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.progressPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 34);
             this.panel2.Name = "panel2";
@@ -121,55 +157,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(629, 586);
             this.dataGridView1.TabIndex = 1;
             // 
-            // progressPanel1
+            // metroProgressSpinner1
             // 
-            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.progressPanel1.Appearance.Options.UseBackColor = true;
-            this.progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.progressPanel1.AppearanceCaption.Options.UseFont = true;
-            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
-            this.progressPanel1.Location = new System.Drawing.Point(228, 167);
-            this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(246, 66);
-            this.progressPanel1.TabIndex = 0;
-            this.progressPanel1.Text = "progressPanel1";
-            // 
-            // toolStripButton_New
-            // 
-            this.toolStripButton_New.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_New.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_New.Image")));
-            this.toolStripButton_New.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_New.Name = "toolStripButton_New";
-            this.toolStripButton_New.Size = new System.Drawing.Size(69, 22);
-            this.toolStripButton_New.Text = "添加新变量";
-            // 
-            // toolStripButton_Item
-            // 
-            this.toolStripButton_Item.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_Item.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Item.Image")));
-            this.toolStripButton_Item.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Item.Name = "toolStripButton_Item";
-            this.toolStripButton_Item.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButton_Item.Text = "箱变变量配置";
-            // 
-            // toolStripButton_WT
-            // 
-            this.toolStripButton_WT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_WT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_WT.Image")));
-            this.toolStripButton_WT.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_WT.Name = "toolStripButton_WT";
-            this.toolStripButton_WT.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButton_WT.Text = "箱变机组配置";
-            // 
-            // toolStripButton_Save
-            // 
-            this.toolStripButton_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_Save.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Save.Image")));
-            this.toolStripButton_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Save.Name = "toolStripButton_Save";
-            this.toolStripButton_Save.Size = new System.Drawing.Size(33, 22);
-            this.toolStripButton_Save.Text = "保存";
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(218, 92);
+            this.metroProgressSpinner1.Maximum = 100;
+            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(198, 152);
+            this.metroProgressSpinner1.TabIndex = 2;
+            this.metroProgressSpinner1.UseSelectable = true;
             // 
             // Form1
             // 
@@ -178,7 +173,6 @@
             this.ClientSize = new System.Drawing.Size(635, 623);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -207,8 +201,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton_Save;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
         private System.Windows.Forms.ToolStripButton toolStripButton_New;
+        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
     }
 }
 
