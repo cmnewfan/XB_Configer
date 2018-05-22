@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using XB_Configer.Model;
 using MetroFramework;
 
 namespace XB_Configer
@@ -20,9 +21,15 @@ namespace XB_Configer
         private String connectionString = ConfigurationManager.ConnectionStrings["5MW_Config"].ConnectionString;
         private BackgroundWorker mWorker;
         private List<String> sqlCommands = null;
+        private List<XB_Item> boolItems = new List<XB_Item>();
+        private List<XB_Item> singleItems = new List<XB_Item>();
+        private List<XB_Item> controlItems = new List<XB_Item>();
+        Dictionary<String, List<XB_Item>> groupContents = new Dictionary<string,List<XB_Item>>();
+
         public Form1()
         {
             InitializeComponent();
+            System.Threading.Thread.Sleep(1000);
             mConnection = new SqlConnection(connectionString);
             try
             {
@@ -88,7 +95,7 @@ namespace XB_Configer
         void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             StringBuilder sBuilder = new StringBuilder();
-            if (this.toolStripButton_Item.Checked && !this.toolStripButton_WT.Checked)
+            if (this.toolStripButton_WindGroup.Checked && !this.toolStripButton_WT.Checked)
             {
                 if (this.dataGridView1[1, e.RowIndex].Value == null || this.dataGridView1[1, e.RowIndex].Value.ToString().Equals(""))
                 {
@@ -123,7 +130,7 @@ namespace XB_Configer
                 sBuilder.Append(@"update XB_ItemDefine set ItemValueColor='" + updateValue + @"' where ItemID=" + id);
                 sqlCommands.Add(sBuilder.ToString());
             }
-            else if (!this.toolStripButton_Item.Checked && this.toolStripButton_WT.Checked)
+            else if (!this.toolStripButton_WindGroup.Checked && this.toolStripButton_WT.Checked)
             {
                 if (this.dataGridView1[1, e.RowIndex].Value == null || this.dataGridView1[1, e.RowIndex].Value.ToString().Equals(""))
                 {
@@ -262,23 +269,21 @@ namespace XB_Configer
 
         void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if (e.ClickedItem == this.toolStripButton_Item)
+            if (e.ClickedItem == this.toolStripButton_WindGroup)
             {
                 preapreDoClick();
-                this.toolStripButton_Item.Checked = true;
+                this.toolStripButton_WindGroup.Checked = true;
                 this.toolStripButton_WT.Checked = false;
                 this.toolStripButton_New.Checked = false;
                 this.toolStrip1.Enabled = false;
                 showProgress();
-                mWorker.RunWorkerAsync(0);
-                ItemGroupUIGenerator itemGroupUIGenerator = new ItemGroupUIGenerator();
-                itemGroupUIGenerator.ShowDialog();
+                mWorker.RunWorkerAsync(-1);
             }
             else if (e.ClickedItem == this.toolStripButton_WT)
             {
                 preapreDoClick();
                 this.toolStripButton_New.Checked = false;
-                this.toolStripButton_Item.Checked = false;
+                this.toolStripButton_WindGroup.Checked = false;
                 this.toolStripButton_WT.Checked = true;
                 showProgress();
                 mWorker.RunWorkerAsync(1);
@@ -290,11 +295,11 @@ namespace XB_Configer
                 sqlCommandWorker.DoWork += sqlCommandWorker_DoWork;
                 sqlCommandWorker.WorkerReportsProgress = true;
                 sqlCommandWorker.ProgressChanged += sqlCommandWorker_ProgressChanged;
-                if (this.toolStripButton_Item.Checked && !this.toolStripButton_WT.Checked)
+                if (this.toolStripButton_WindGroup.Checked && !this.toolStripButton_WT.Checked)
                 {
                     sqlCommandWorker.RunWorkerAsync("Item");
                 }
-                else if (!this.toolStripButton_Item.Checked && this.toolStripButton_WT.Checked)
+                else if (!this.toolStripButton_WindGroup.Checked && this.toolStripButton_WT.Checked)
                 {
                     sqlCommandWorker.RunWorkerAsync("WT");
                 }
@@ -306,7 +311,7 @@ namespace XB_Configer
             else if (e.ClickedItem == this.toolStripButton_New)
             {
                 preapreDoClick();
-                this.toolStripButton_Item.Checked = false;
+                this.toolStripButton_WindGroup.Checked = false;
                 this.toolStripButton_WT.Checked = false;
                 this.toolStripButton_New.Checked = true;
                 this.toolStrip1.Enabled = false;
@@ -356,7 +361,7 @@ namespace XB_Configer
             MessageBox.Show("数据修改已完成.");
             if (e.ProgressPercentage == 100)
             {
-                toolStrip1_ItemClicked(this.toolStrip1, new ToolStripItemClickedEventArgs(this.toolStripButton_Item));
+                toolStrip1_ItemClicked(this.toolStrip1, new ToolStripItemClickedEventArgs(this.toolStripButton_WindGroup));
             }
             else if (e.ProgressPercentage == 101)
             {
@@ -493,6 +498,11 @@ namespace XB_Configer
                 }
                 this.dataGridView1.Columns[0].ReadOnly = true;
             }
+            else if (e.ProgressPercentage == 3)
+            {
+                ItemGroupUIGenerator generator = new ItemGroupUIGenerator(singleItems, boolItems, controlItems, groupContents);
+                generator.ShowDialog();
+            }
             this.dataGridView1.BringToFront();
             this.dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
         }
@@ -535,6 +545,121 @@ namespace XB_Configer
                 DataSet ds = new DataSet();
                 da.Fill(ds, "Result");
                 worker.ReportProgress(2, ds);
+            }
+            else if(int.Parse(e.Argument.ToString()) == -1)
+            {
+                System.Threading.Thread.Sleep(100);
+                singleItems.Clear();
+                boolItems.Clear();
+                controlItems.Clear();
+                groupContents.Clear();
+                mCommand.CommandText = @"select ItemID, ItemChineseName, ItemValueUnitName, ItemValueColor from XB_ItemDefine where IsVirtual=0 and  ((ItemID between 1701 and 1740) or (ItemID between 1793 and 1800)) order by ItemID";
+                var reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    int id = int.Parse(reader[0].ToString());
+                    String name = reader[1].ToString();
+                    String unitName = reader[2].ToString();
+                    String color = reader[3].ToString();
+                    if(id>=1721 && id<=1730)
+                    {
+                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),"Normal");
+                        singleItems.Add(item);
+                    }
+                    else if(id>=1793 && id<=1800)
+                    {
+                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),"Normal");
+                        controlItems.Add(item);
+                    }
+                    else
+                    {
+                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),reader[3].ToString().Contains("标准")?"Normal":"Mix");
+                        boolItems.Add(item);
+                    }
+                }
+                reader.Close();
+                mCommand.CommandText = @"select GroupName from WindGroupDefine where GroupID between 303 and 307 order by GroupID";
+                reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    String groupName = reader[0].ToString();
+                    groupContents.Add(groupName, new List<XB_Item>());
+                }
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=303 and a.ItemID=b.ItemID";
+                List<XB_Item> items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    if(boolItems.Exists(item=>item.getItemName().Equals(reader[0].ToString())))
+                    {
+                        items.Add(boolItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                    else
+                    {
+                        items.Add(singleItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                }
+                groupContents[groupContents.Keys.ElementAt(0)] = items;
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=304 and a.ItemID=b.ItemID";
+                items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    if (boolItems.Exists(item => item.getItemName().Equals(reader[0].ToString())))
+                    {
+                        items.Add(boolItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                    else
+                    {
+                        items.Add(singleItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                }
+                groupContents[groupContents.Keys.ElementAt(1)] = items;
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=305 and a.ItemID=b.ItemID";
+                items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    if (boolItems.Exists(item => item.getItemName().Equals(reader[0].ToString())))
+                    {
+                        items.Add(boolItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                    else
+                    {
+                        items.Add(singleItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                }
+                groupContents[groupContents.Keys.ElementAt(2)] = items;
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=306 and a.ItemID=b.ItemID";
+                items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    if (boolItems.Exists(item => item.getItemName().Equals(reader[0].ToString())))
+                    {
+                        items.Add(boolItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                    else
+                    {
+                        items.Add(singleItems.First(item=>item.getItemName().Equals(reader[0].ToString())));
+                    }
+                }
+                groupContents[groupContents.Keys.ElementAt(3)] = items;
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=307 and a.ItemID=b.ItemID";
+                items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    items.Add(controlItems.First(item => item.getItemName().Equals(reader[0].ToString())));
+                }
+                groupContents[groupContents.Keys.ElementAt(4)] = items;
+                reader.Close();
+                worker.ReportProgress(3);
             }
         }
     }

@@ -33,14 +33,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_New = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_Item = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_WindGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_WT = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_Save = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -76,7 +76,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_New,
-            this.toolStripButton_Item,
+            this.toolStripButton_WindGroup,
             this.toolStripSeparator1,
             this.toolStripButton_WT,
             this.toolStripSeparator2,
@@ -96,14 +96,14 @@
             this.toolStripButton_New.Size = new System.Drawing.Size(84, 22);
             this.toolStripButton_New.Text = "箱变变量配置";
             // 
-            // toolStripButton_Item
+            // toolStripButton_WindGroup
             // 
-            this.toolStripButton_Item.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_Item.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Item.Image")));
-            this.toolStripButton_Item.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Item.Name = "toolStripButton_Item";
-            this.toolStripButton_Item.Size = new System.Drawing.Size(84, 22);
-            this.toolStripButton_Item.Text = "箱变变量配置";
+            this.toolStripButton_WindGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton_WindGroup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_WindGroup.Image")));
+            this.toolStripButton_WindGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_WindGroup.Name = "toolStripButton_WindGroup";
+            this.toolStripButton_WindGroup.Size = new System.Drawing.Size(84, 22);
+            this.toolStripButton_WindGroup.Text = "箱变分组配置";
             // 
             // toolStripSeparator1
             // 
@@ -143,6 +143,15 @@
             this.panel2.Size = new System.Drawing.Size(629, 586);
             this.panel2.TabIndex = 1;
             // 
+            // metroProgressSpinner1
+            // 
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(218, 92);
+            this.metroProgressSpinner1.Maximum = 100;
+            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(198, 152);
+            this.metroProgressSpinner1.TabIndex = 2;
+            this.metroProgressSpinner1.UseSelectable = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -156,15 +165,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(629, 586);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // metroProgressSpinner1
-            // 
-            this.metroProgressSpinner1.Location = new System.Drawing.Point(218, 92);
-            this.metroProgressSpinner1.Maximum = 100;
-            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
-            this.metroProgressSpinner1.Size = new System.Drawing.Size(198, 152);
-            this.metroProgressSpinner1.TabIndex = 2;
-            this.metroProgressSpinner1.UseSelectable = true;
             // 
             // Form1
             // 
@@ -194,7 +194,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton_Item;
+        private System.Windows.Forms.ToolStripButton toolStripButton_WindGroup;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton_WT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;

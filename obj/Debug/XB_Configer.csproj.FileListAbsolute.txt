@@ -14,7 +14,6 @@ E:\HzScada-v3.0-Source\branches\HzScadaNoMap9月份5MW\XB_Configer\obj\Debug\XB_
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\XB_Configer.exe.config
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.exe
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.pdb
-C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.csprojResolveAssemblyReference.cache
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.Form1.resources
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.FormLogin.resources
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.FormStart.resources
@@ -30,3 +29,8 @@ C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\MetroF
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.ItemGroupUIGenerator.resources
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.MixItemUI.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.NormalItemUI.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.InputDialog.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\ZMSoft.Win.TreeView.dll
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.csprojResolveAssemblyReference.cache

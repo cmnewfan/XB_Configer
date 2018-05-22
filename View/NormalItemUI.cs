@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 
-namespace XB_Configer.ItemUI
+namespace XB_Configer.View
 {
     public partial class NormalItemUI : MetroFramework.Controls.MetroUserControl
     {
@@ -21,6 +21,12 @@ namespace XB_Configer.ItemUI
             InitializeComponent();
         }
 
+        public NormalItemUI(String name)
+        {
+            InitializeComponent();
+            this.label_ItemName.Text = name;
+        }
+
         public NormalItemUI(Image trueImage, Image falseImage, String name)
         {
             InitializeComponent();
@@ -29,7 +35,7 @@ namespace XB_Configer.ItemUI
             this.label_ItemName.Text = name;
         }
 
-        public abstract void update(Boolean value)
+        public virtual void update(Boolean value)
         {
             if (trueValueImage != null && falseValueImage != null && value!=null)
             {

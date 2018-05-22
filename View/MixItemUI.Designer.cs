@@ -1,4 +1,4 @@
-﻿namespace XB_Configer.ItemUI
+﻿namespace XB_Configer.View
 {
     partial class MixItemUI
     {
@@ -39,27 +39,26 @@
             // 
             // tableLayoutPanelMixItem
             // 
-            this.tableLayoutPanelMixItem.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.tableLayoutPanelMixItem.AutoSize = true;
             this.tableLayoutPanelMixItem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanelMixItem.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanelMixItem.ColumnCount = 3;
-            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanelMixItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanelMixItem.Controls.Add(this.label_Value_MixDown, 2, 1);
             this.tableLayoutPanelMixItem.Controls.Add(this.label_Mix_Down, 1, 1);
             this.tableLayoutPanelMixItem.Controls.Add(this.label_Mix_Up, 1, 0);
             this.tableLayoutPanelMixItem.Controls.Add(this.label_Value_MixUp, 2, 0);
             this.tableLayoutPanelMixItem.Controls.Add(this.label_ItemName, 0, 0);
-            this.tableLayoutPanelMixItem.Location = new System.Drawing.Point(57, 19);
+            this.tableLayoutPanelMixItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelMixItem.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelMixItem.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelMixItem.Name = "tableLayoutPanelMixItem";
             this.tableLayoutPanelMixItem.RowCount = 2;
-            this.tableLayoutPanelMixItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelMixItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelMixItem.Size = new System.Drawing.Size(210, 70);
+            this.tableLayoutPanelMixItem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanelMixItem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanelMixItem.Size = new System.Drawing.Size(198, 48);
             this.tableLayoutPanelMixItem.TabIndex = 4;
             // 
             // label_Value_MixDown
@@ -69,10 +68,10 @@
             this.label_Value_MixDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_Value_MixDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_Value_MixDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label_Value_MixDown.Location = new System.Drawing.Point(161, 35);
+            this.label_Value_MixDown.Location = new System.Drawing.Point(161, 23);
             this.label_Value_MixDown.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.label_Value_MixDown.Name = "label_Value_MixDown";
-            this.label_Value_MixDown.Size = new System.Drawing.Size(49, 35);
+            this.label_Value_MixDown.Size = new System.Drawing.Size(37, 25);
             this.label_Value_MixDown.TabIndex = 4;
             this.label_Value_MixDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -83,10 +82,10 @@
             this.label_Mix_Down.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label_Mix_Down.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_Mix_Down.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_Mix_Down.Location = new System.Drawing.Point(120, 35);
+            this.label_Mix_Down.Location = new System.Drawing.Point(120, 23);
             this.label_Mix_Down.Margin = new System.Windows.Forms.Padding(0);
             this.label_Mix_Down.Name = "label_Mix_Down";
-            this.label_Mix_Down.Size = new System.Drawing.Size(40, 35);
+            this.label_Mix_Down.Size = new System.Drawing.Size(40, 25);
             this.label_Mix_Down.TabIndex = 3;
             this.label_Mix_Down.Text = "合位";
             this.label_Mix_Down.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,7 +100,7 @@
             this.label_Mix_Up.Location = new System.Drawing.Point(120, 0);
             this.label_Mix_Up.Margin = new System.Windows.Forms.Padding(0);
             this.label_Mix_Up.Name = "label_Mix_Up";
-            this.label_Mix_Up.Size = new System.Drawing.Size(40, 35);
+            this.label_Mix_Up.Size = new System.Drawing.Size(40, 23);
             this.label_Mix_Up.TabIndex = 2;
             this.label_Mix_Up.Text = "分位";
             this.label_Mix_Up.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,7 +115,7 @@
             this.label_Value_MixUp.Location = new System.Drawing.Point(161, 0);
             this.label_Value_MixUp.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.label_Value_MixUp.Name = "label_Value_MixUp";
-            this.label_Value_MixUp.Size = new System.Drawing.Size(49, 35);
+            this.label_Value_MixUp.Size = new System.Drawing.Size(37, 23);
             this.label_Value_MixUp.TabIndex = 1;
             this.label_Value_MixUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -131,10 +130,10 @@
             this.label_ItemName.Margin = new System.Windows.Forms.Padding(0);
             this.label_ItemName.Name = "label_ItemName";
             this.tableLayoutPanelMixItem.SetRowSpan(this.label_ItemName, 2);
-            this.label_ItemName.Size = new System.Drawing.Size(120, 70);
+            this.label_ItemName.Size = new System.Drawing.Size(120, 48);
             this.label_ItemName.TabIndex = 0;
             this.label_ItemName.Text = "变量名";
-            this.label_ItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_ItemName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MixItemUI
             // 
@@ -142,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanelMixItem);
             this.Name = "MixItemUI";
-            this.Size = new System.Drawing.Size(348, 108);
+            this.Size = new System.Drawing.Size(198, 48);
             this.tableLayoutPanelMixItem.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

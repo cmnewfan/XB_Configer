@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 
-namespace XB_Configer.ItemUI
+namespace XB_Configer.View
 {
     public partial class MixItemUI : MetroFramework.Controls.MetroUserControl
     {
@@ -23,8 +23,15 @@ namespace XB_Configer.ItemUI
             InitializeComponent();
         }
 
+        public MixItemUI(String name)
+        {
+            InitializeComponent();
+            this.label_ItemName.Text = name;
+        }
+
         public MixItemUI(Image trueImageUp, Image falseImageUp, Image trueImageDown, Image falseImageDown, String name)
         {
+            InitializeComponent();
             this.label_ItemName.Text = name;
             this.trueValueImageUp = trueImageUp;
             this.falseValueImageUp = falseImageUp;
@@ -32,7 +39,7 @@ namespace XB_Configer.ItemUI
             this.falseValueImageDown = falseImageDown;
         }
 
-        public abstract void update(Boolean upValue, Boolean downValue)
+        public virtual void update(Boolean upValue, Boolean downValue)
         {
             if (trueValueImageUp != null && falseValueImageUp != null && trueValueImageDown != null && falseValueImageDown != null && upValue != null && downValue != null)
             {
