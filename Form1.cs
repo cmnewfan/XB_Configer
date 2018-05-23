@@ -563,22 +563,22 @@ namespace XB_Configer
                     String color = reader[3].ToString();
                     if(id>=1721 && id<=1730)
                     {
-                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),"Normal");
+                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),"Normal", int.Parse(reader[0].ToString()));
                         singleItems.Add(item);
                     }
                     else if(id>=1793 && id<=1800)
                     {
-                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),"Normal");
+                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(), "Normal", int.Parse(reader[0].ToString()));
                         controlItems.Add(item);
                     }
                     else
                     {
-                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(),reader[3].ToString().Contains("标准")?"Normal":"Mix");
+                        XB_Item item = new XB_Item(reader[1].ToString(), reader[2].ToString(), reader[3].ToString().Contains("标准") ? "Normal" : "Mix", int.Parse(reader[0].ToString()));
                         boolItems.Add(item);
                     }
                 }
                 reader.Close();
-                mCommand.CommandText = @"select GroupName from WindGroupDefine where GroupID between 303 and 307 order by GroupID";
+                mCommand.CommandText = @"select GroupName from WindGroupDefine where GroupID between 303 and 309 order by GroupID";
                 reader = mCommand.ExecuteReader();
                 while(reader.Read())
                 {
@@ -658,6 +658,24 @@ namespace XB_Configer
                     items.Add(controlItems.First(item => item.getItemName().Equals(reader[0].ToString())));
                 }
                 groupContents[groupContents.Keys.ElementAt(4)] = items;
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=308 and a.ItemID=b.ItemID";
+                items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    items.Add(controlItems.First(item => item.getItemName().Equals(reader[0].ToString())));
+                }
+                groupContents[groupContents.Keys.ElementAt(5)] = items;
+                reader.Close();
+                mCommand.CommandText = @"select b.ItemChineseName from ItemGroupDefine a, TotalItemDefine b where a.ItemGroupID=309 and a.ItemID=b.ItemID";
+                items = new List<XB_Item>();
+                reader = mCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    items.Add(controlItems.First(item => item.getItemName().Equals(reader[0].ToString())));
+                }
+                groupContents[groupContents.Keys.ElementAt(6)] = items;
                 reader.Close();
                 worker.ReportProgress(3);
             }

@@ -17,15 +17,17 @@ namespace XB_Configer.View
         private Image falseValueImageUp;
         private Image trueValueImageDown;
         private Image falseValueImageDown;
+        private int itemID;
 
         public MixItemUI()
         {
             InitializeComponent();
         }
 
-        public MixItemUI(String name)
+        public MixItemUI(String name, int id)
         {
             InitializeComponent();
+            this.itemID = id;
             this.label_ItemName.Text = name;
         }
 
@@ -37,6 +39,11 @@ namespace XB_Configer.View
             this.falseValueImageUp = falseImageUp;
             this.trueValueImageDown = trueImageDown;
             this.falseValueImageDown = falseImageDown;
+        }
+
+        public int getItemID()
+        {
+            return itemID;
         }
 
         public virtual void update(Boolean upValue, Boolean downValue)

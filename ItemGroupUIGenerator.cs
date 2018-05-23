@@ -24,6 +24,8 @@ namespace XB_Configer
         private List<String> contentBoolItems = new List<string>();
         private List<String> contentSingleItems = new List<string>();
         private List<String> contentControlItems = new List<string>();
+        private Boolean isChanged = false;
+        private int lastSelectedIndex = 0;
 
         public ItemGroupUIGenerator()
         {
@@ -62,25 +64,91 @@ namespace XB_Configer
 
         private void metroComboBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (this.metroComboBoxGroups.SelectedIndex)
+            if(this.lastSelectedIndex!=this.metroComboBoxGroups.SelectedIndex && isChanged)
+            {
+                switch (lastSelectedIndex)
+                {
+                    case 0:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=303");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    case 1:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=304");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    case 2:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=305");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    case 3:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=306");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    case 4:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=307");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    case 5:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=308");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    case 6:
+                        this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=309");
+                        generateUpdateCommands(lastSelectedIndex);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            initGroupContents(this.metroComboBoxGroups.SelectedIndex);
+            this.isChanged = false;
+        }
+
+        private void generateUpdateCommands(int tableIndex)
+        {
+            switch (tableIndex)
             {
                 case 0:
-                    initGroupContents(0);
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=303");
                     break;
                 case 1:
-                    initGroupContents(1);
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=304");
                     break;
                 case 2:
-                    initGroupContents(2);
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=305");
                     break;
                 case 3:
-                    initGroupContents(3);
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=306");
                     break;
                 case 4:
-                    initGroupContents(4);
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=307");
+                    break;
+                case 5:
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=308");
+                    break;
+                case 6:
+                    this.updateCommands.Add(@"delete from ItemGroupDefine where ItemGroupID=309");
                     break;
                 default:
                     break;
+            }
+            for (int i = 0; i < this.tableLayoutPanelContent.RowCount; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (j == 0)
+                    {
+                        var item = this.tableLayoutPanelContent.GetControlFromPosition(0, i);
+                        if (item is NormalItemUI)
+                        {
+                            this.updateCommands.Add(@"insert into ItemGroupDefine values (303," + ((NormalItemUI)item).getItemID() + @",0)");
+                        }
+                        else if (item is MixItemUI)
+                        {
+                            this.updateCommands.Add(@"insert into ItemGroupDefine values (303," + ((MixItemUI)item).getItemID() + @",0)");
+                        }
+                    }
+                }
             }
         }
 
@@ -94,7 +162,7 @@ namespace XB_Configer
             this.tableLayoutPanelContent.RowStyles.Clear();
             this.tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 25.0f));
             var contents = this.groupContents.Values.ElementAt(selectedIndex);
-            if (selectedIndex == 4)
+            if (selectedIndex >= 4)
             {
                 foreach (XB_Item item in contents)
                 {
@@ -108,7 +176,7 @@ namespace XB_Configer
                 {
                     if (contents.ElementAt(0).getItemDisplayType().Equals("Normal"))
                     {
-                        var itemUI = new NormalItemUI(contents.ElementAt(0).getItemName());
+                        var itemUI = new NormalItemUI(contents.ElementAt(0).getItemName(), contents.ElementAt(0).getItemID());
                         this.tableLayoutPanelContent.Controls.Add(itemUI, 0, 0);
                         itemUI.Dock = DockStyle.Fill;
                         itemUI.ContextMenuStrip = this.metroContextMenuItem;
@@ -117,7 +185,7 @@ namespace XB_Configer
                     else if (contents.ElementAt(0).getItemDisplayType().Equals("Mix"))
                     {
                         this.tableLayoutPanelContent.RowStyles[this.tableLayoutPanelContent.RowStyles.Count - 1] = new RowStyle(SizeType.Absolute, 50.0f);
-                        var itemUI = new MixItemUI(contents.ElementAt(0).getItemName());
+                        var itemUI = new MixItemUI(contents.ElementAt(0).getItemName(), contents.ElementAt(0).getItemID());
                         this.tableLayoutPanelContent.Controls.Add(itemUI, 0, 0);
                         itemUI.Dock = DockStyle.Fill;
                         itemUI.ContextMenuStrip = this.metroContextMenuItem;
@@ -128,7 +196,7 @@ namespace XB_Configer
                 {
                     if (contents.ElementAt(i).getItemDisplayType().Equals("Normal"))
                     {
-                        var itemUI = new NormalItemUI(contents.ElementAt(i).getItemName());
+                        var itemUI = new NormalItemUI(contents.ElementAt(i).getItemName(), contents.ElementAt(i).getItemID());
                         this.tableLayoutPanelContent.Controls.Add(itemUI, (int)i % 2 == 0 ? 0 : 2, (int)i / 2);
                         itemUI.Dock = DockStyle.Fill;
                         itemUI.ContextMenuStrip = this.metroContextMenuItem;
@@ -143,7 +211,7 @@ namespace XB_Configer
                     else if (contents.ElementAt(i).getItemDisplayType().Equals("Mix"))
                     {
                         this.tableLayoutPanelContent.RowStyles[this.tableLayoutPanelContent.RowStyles.Count - 1] = new RowStyle(SizeType.Absolute, 50.0f);
-                        var itemUI = new MixItemUI(contents.ElementAt(i).getItemName());
+                        var itemUI = new MixItemUI(contents.ElementAt(i).getItemName(), contents.ElementAt(i).getItemID());
                         this.tableLayoutPanelContent.Controls.Add(itemUI, (int)i % 2 == 0 ? 0 : 2, (int)i / 2);
                         itemUI.Dock = DockStyle.Fill;
                         itemUI.ContextMenuStrip = this.metroContextMenuItem;
@@ -166,6 +234,11 @@ namespace XB_Configer
         {
             if (e.ClickedItem == this.toolStripButtonExit)
             {
+                if (isChanged)
+                {
+                    generateUpdateCommands(this.metroComboBoxGroups.SelectedIndex);
+                }
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
@@ -192,9 +265,16 @@ namespace XB_Configer
             var parentControl = this.metroContextMenuItem.SourceControl;
             if (parentControl is NormalItemUI || parentControl is MixItemUI)
             {
+                var position = this.tableLayoutPanelContent.GetCellPosition(parentControl);
                 this.tableLayoutPanelContent.Controls.Remove(parentControl);
+                Label nullLabel = new Label();
+                this.tableLayoutPanelContent.Controls.Add(nullLabel, position.Column, position.Row);
+                nullLabel.Dock = DockStyle.Fill;
+                nullLabel.Text = "";
+                nullLabel.ContextMenuStrip = this.metroContextMenuTable;
+                updateTreeAndContext();
+                this.isChanged = true;
             }
-            updateTreeAndContext();
         }
 
         private void tableLayoutPanelContent_MouseClick(object sender, MouseEventArgs e)
@@ -258,7 +338,18 @@ namespace XB_Configer
             var clickedType = clickedItem.OwnerItem.OwnerItem.Text;
             if (clickedType.Equals("增加"))
             {
-                addClickedToolStripMenuItem(clickedItem, clickedItemType);
+                var parentControl = this.metroContextMenuItem.SourceControl;
+                if (parentControl == null)
+                {
+                    addClickedToolStripMenuItem(clickedItem, clickedItemType);
+                }
+                else if (parentControl is Label)
+                {
+                    var position = this.tableLayoutPanelContent.GetCellPosition(parentControl);
+                    this.tableLayoutPanelContent.Controls.Remove(parentControl);
+                    addClickedToolStripMenuItem(clickedItem, clickedItemType, position.Column, position.Row);
+                }
+                this.isChanged = true;
             }
             else if (clickedType.Equals("替换"))
             {
@@ -269,6 +360,7 @@ namespace XB_Configer
                     this.tableLayoutPanelContent.Controls.Remove(parentControl);
                     addClickedToolStripMenuItem(clickedItem, clickedItemType, position.Column, position.Row);
                     updateTreeAndContext();
+                    this.isChanged = true;
                 }
             }
         }
@@ -278,7 +370,7 @@ namespace XB_Configer
             var targetItem = getSelectedItemByName(clickedItemType, clickedItem.Text);
             if (targetItem.getItemDisplayType().Equals("Normal"))
             {
-                var targetItemUI = new NormalItemUI(targetItem.getItemName());
+                var targetItemUI = new NormalItemUI(targetItem.getItemName(), targetItem.getItemID());
                 int i = this.tableLayoutPanelContent.Controls.Count;
                 if (column == -1 && row == -1)
                 {
@@ -299,7 +391,7 @@ namespace XB_Configer
             }
             else if (targetItem.getItemDisplayType().Equals("Mix"))
             {
-                var targetItemUI = new MixItemUI(targetItem.getItemName());
+                var targetItemUI = new MixItemUI(targetItem.getItemName(), targetItem.getItemID());
                 int i = this.tableLayoutPanelContent.Controls.Count;
                 this.tableLayoutPanelContent.RowStyles[this.tableLayoutPanelContent.RowStyles.Count - 1] = new RowStyle(SizeType.Absolute, 50.0f);
                 if (column == -1 && row == -1)

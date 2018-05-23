@@ -11,12 +11,14 @@ namespace XB_Configer.Model
         private String ItemUnitType;
         private String ItemName;
         private String ItemDisplayType;
+        private int ItemID;
 
-        public XB_Item(String name, String unitType, String displayType)
+        public XB_Item(String name, String unitType, String displayType, int id)
         {
             this.ItemName = name;
             this.ItemUnitType = unitType;
             this.ItemDisplayType = displayType;
+            this.ItemID = id;
         }
 
         public String getItemName()
@@ -32,6 +34,11 @@ namespace XB_Configer.Model
         public String getItemUnitType()
         {
             return ItemUnitType;
+        }
+
+        public int getItemID()
+        {
+            return ItemID;
         }
     }
 }

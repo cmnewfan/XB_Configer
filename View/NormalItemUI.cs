@@ -15,15 +15,17 @@ namespace XB_Configer.View
     {
         private Image trueValueImage;
         private Image falseValueImage;
+        private int itemID;
 
         public NormalItemUI()
         {
             InitializeComponent();
         }
 
-        public NormalItemUI(String name)
+        public NormalItemUI(String name, int id)
         {
             InitializeComponent();
+            this.itemID = id;
             this.label_ItemName.Text = name;
         }
 
@@ -33,6 +35,11 @@ namespace XB_Configer.View
             this.trueValueImage = trueImage;
             this.falseValueImage = falseImage;
             this.label_ItemName.Text = name;
+        }
+
+        public int getItemID()
+        {
+            return itemID;
         }
 
         public virtual void update(Boolean value)

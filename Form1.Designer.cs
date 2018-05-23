@@ -41,6 +41,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStripButtonPreview = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -80,6 +82,8 @@
             this.toolStripSeparator1,
             this.toolStripButton_WT,
             this.toolStripSeparator2,
+            this.toolStripButtonPreview,
+            this.toolStripSeparator3,
             this.toolStripButton_Save});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -166,6 +170,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(629, 586);
             this.dataGridView1.TabIndex = 1;
             // 
+            // toolStripButtonPreview
+            // 
+            this.toolStripButtonPreview.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonPreview.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPreview.Image")));
+            this.toolStripButtonPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPreview.Name = "toolStripButtonPreview";
+            this.toolStripButtonPreview.Size = new System.Drawing.Size(84, 22);
+            this.toolStripButtonPreview.Text = "箱变界面预览";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -203,6 +221,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton toolStripButton_New;
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPreview;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
