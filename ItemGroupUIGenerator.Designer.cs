@@ -39,6 +39,12 @@
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelCenter = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelContent = new System.Windows.Forms.TableLayoutPanel();
+            this.metroContextMenuTable = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddSingle = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddBool = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddControl = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.metroContextMenuItem = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.toolStripMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEditSingle = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,11 +53,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemDel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemAddSingle = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemAddBool = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemAddControl = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.metroComboBoxGroups = new MetroFramework.Controls.MetroComboBox();
             this.metroPanelButtons = new MetroFramework.Controls.MetroPanel();
             this.toolStripButtons = new System.Windows.Forms.ToolStrip();
@@ -60,17 +61,16 @@
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.metroPanelAll = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroContextMenuTable = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.metroPanelTree.SuspendLayout();
             this.metroPanelMain.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
             this.tableLayoutPanelCenter.SuspendLayout();
+            this.metroContextMenuTable.SuspendLayout();
             this.metroContextMenuItem.SuspendLayout();
             this.metroPanelButtons.SuspendLayout();
             this.toolStripButtons.SuspendLayout();
             this.metroPanelAll.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            this.metroContextMenuTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanelTree
@@ -164,18 +164,60 @@
             this.tableLayoutPanelContent.ColumnCount = 3;
             this.tableLayoutPanelContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanelContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
+            this.tableLayoutPanelContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
             this.tableLayoutPanelContent.ContextMenuStrip = this.metroContextMenuTable;
             this.tableLayoutPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelContent.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanelContent.Name = "tableLayoutPanelContent";
             this.tableLayoutPanelContent.RowCount = 1;
             this.tableLayoutPanelCenter.SetRowSpan(this.tableLayoutPanelContent, 3);
-            this.tableLayoutPanelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 318F));
+            this.tableLayoutPanelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanelContent.Size = new System.Drawing.Size(440, 308);
             this.tableLayoutPanelContent.TabIndex = 1;
             this.tableLayoutPanelContent.DragDrop += new System.Windows.Forms.DragEventHandler(this.tableLayoutPanelContent_DragDrop);
             this.tableLayoutPanelContent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanelContent_MouseClick);
+            // 
+            // metroContextMenuTable
+            // 
+            this.metroContextMenuTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAdd,
+            this.toolStripSeparator2});
+            this.metroContextMenuTable.Name = "metroContextMenuTable";
+            this.metroContextMenuTable.Size = new System.Drawing.Size(101, 32);
+            // 
+            // toolStripMenuItemAdd
+            // 
+            this.toolStripMenuItemAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAddSingle,
+            this.toolStripMenuItemAddBool,
+            this.toolStripMenuItemAddControl});
+            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
+            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItemAdd.Text = "增加";
+            this.toolStripMenuItemAdd.ToolTipText = "增加";
+            // 
+            // toolStripMenuItemAddSingle
+            // 
+            this.toolStripMenuItemAddSingle.Name = "toolStripMenuItemAddSingle";
+            this.toolStripMenuItemAddSingle.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItemAddSingle.Text = "模拟量";
+            // 
+            // toolStripMenuItemAddBool
+            // 
+            this.toolStripMenuItemAddBool.Name = "toolStripMenuItemAddBool";
+            this.toolStripMenuItemAddBool.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItemAddBool.Text = "布尔量";
+            // 
+            // toolStripMenuItemAddControl
+            // 
+            this.toolStripMenuItemAddControl.Name = "toolStripMenuItemAddControl";
+            this.toolStripMenuItemAddControl.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItemAddControl.Text = "控制量";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(97, 6);
             // 
             // metroContextMenuItem
             // 
@@ -234,40 +276,6 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(97, 6);
-            // 
-            // toolStripMenuItemAdd
-            // 
-            this.toolStripMenuItemAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemAddSingle,
-            this.toolStripMenuItemAddBool,
-            this.toolStripMenuItemAddControl});
-            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
-            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(100, 22);
-            this.toolStripMenuItemAdd.Text = "增加";
-            this.toolStripMenuItemAdd.ToolTipText = "增加";
-            // 
-            // toolStripMenuItemAddSingle
-            // 
-            this.toolStripMenuItemAddSingle.Name = "toolStripMenuItemAddSingle";
-            this.toolStripMenuItemAddSingle.Size = new System.Drawing.Size(112, 22);
-            this.toolStripMenuItemAddSingle.Text = "模拟量";
-            // 
-            // toolStripMenuItemAddBool
-            // 
-            this.toolStripMenuItemAddBool.Name = "toolStripMenuItemAddBool";
-            this.toolStripMenuItemAddBool.Size = new System.Drawing.Size(112, 22);
-            this.toolStripMenuItemAddBool.Text = "布尔量";
-            // 
-            // toolStripMenuItemAddControl
-            // 
-            this.toolStripMenuItemAddControl.Name = "toolStripMenuItemAddControl";
-            this.toolStripMenuItemAddControl.Size = new System.Drawing.Size(112, 22);
-            this.toolStripMenuItemAddControl.Text = "控制量";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(97, 6);
             // 
             // metroComboBoxGroups
             // 
@@ -374,14 +382,6 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // metroContextMenuTable
-            // 
-            this.metroContextMenuTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemAdd,
-            this.toolStripSeparator2});
-            this.metroContextMenuTable.Name = "metroContextMenuTable";
-            this.metroContextMenuTable.Size = new System.Drawing.Size(101, 32);
-            // 
             // ItemGroupUIGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -393,6 +393,7 @@
             this.metroPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelCenter.ResumeLayout(false);
+            this.metroContextMenuTable.ResumeLayout(false);
             this.metroContextMenuItem.ResumeLayout(false);
             this.metroPanelButtons.ResumeLayout(false);
             this.metroPanelButtons.PerformLayout();
@@ -400,7 +401,6 @@
             this.toolStripButtons.PerformLayout();
             this.metroPanelAll.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
-            this.metroContextMenuTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

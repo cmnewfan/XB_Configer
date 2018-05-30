@@ -33,4 +33,5 @@ C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Con
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.NormalItemUI.resources
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.InputDialog.resources
 C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\bin\Debug\ZMSoft.Win.TreeView.dll
-C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.csprojResolveAssemblyReference.cache
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.PreviewForm.resources
+C:\Users\hzfd\Documents\Visual Studio 2012\Projects\XB_Configer\obj\Debug\XB_Configer.View.TransformerWindowPreview.resources

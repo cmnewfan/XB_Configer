@@ -113,6 +113,8 @@
     <Compile Include="ItemUIGenerator.Designer.cs">
       <DependentUpon>ItemUIGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\WindTurbine.cs" />
+    <Compile Include="Model\WindTurbineDisplayGroup.cs" />
     <Compile Include="View\MixItemUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +135,18 @@
     </Compile>
     <Compile Include="View\InputDialog.Designer.cs">
       <DependentUpon>InputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PreviewForm.Designer.cs">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransformerWindowPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransformerWindowPreview.Designer.cs">
+      <DependentUpon>TransformerWindowPreview.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -171,6 +185,12 @@
     </Compile>
     <EmbeddedResource Include="View\InputDialog.resx">
       <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PreviewForm.resx">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransformerWindowPreview.resx">
+      <DependentUpon>TransformerWindowPreview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

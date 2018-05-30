@@ -12,6 +12,11 @@ namespace XB_Configer.Model
         private String ItemName;
         private String ItemDisplayType;
         private int ItemID;
+        public object Tag
+        {
+            get;
+            set;
+        }
 
         public XB_Item(String name, String unitType, String displayType, int id)
         {
